@@ -10,6 +10,7 @@ class Post < ApplicationRecord
     author.update(posts_counter: 0) if author.posts_counter.nil?
     author.update(posts_counter: author.posts_counter + 1)
   end
+
   # A method which returns the 5 most recent comments for a given post.
   def most_recent_comments
     comments.limit(5).order(created_at: :desc)
