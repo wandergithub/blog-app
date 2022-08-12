@@ -18,4 +18,11 @@ RSpec.describe User, type: :model do
       expect(User.new(name: 'carlos', posts_counter: -2)).to be_invalid
     end
   end
+
+  describe '#most_recent_posts' do
+    it 'Returns an array  of posts relations' do
+      User.create(name: 'carlos', posts_counter: 0)
+      expect(User.first.most_recent_posts).to be_truthy
+    end
+  end
 end
