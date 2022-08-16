@@ -20,7 +20,7 @@ RSpec.describe 'Controllers', type: :request do
 
   context "Users#show action" do
     before :each do
-      user = User.new(name: 'Jhon', posts_counter: 0)
+      user = User.create(name: 'Jhon', posts_counter: 0)
       get user_path(1)
     end
     it "get 'users/id returns Ok response status" do
@@ -33,6 +33,24 @@ RSpec.describe 'Controllers', type: :request do
 
     it "Includes placeholder message" do
       expect(response.body).to include('Here is an specific user')
+    end
+  end
+
+  context "Posts#index action" do
+    before :each do
+      user = User.create(name: 'Jhon', posts_counter: 0)
+      get "/users/#{user.id}/posts"
+    end
+    it "returns ok status" do
+      expect(response).to have_http_status(:ok)
+    end
+
+    it "Renders the right template" do
+      expect(response).to render_template(:index)
+    end
+
+    it "includes the placeholder text" do
+      expect(response.body).to include(' Here is a list of posts for a given user ')
     end
   end
 end
