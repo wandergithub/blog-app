@@ -17,5 +17,9 @@
 }
 
 .user_container div {
+  border: 1px solid black;
   display: flex;
+  justify-content: space-between;
+  gap: 120px;
+  padding: 5px 20px;
 }

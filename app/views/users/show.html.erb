@@ -1,5 +1,6 @@
+<%= stylesheet_link_tag "show"%>
 <div>
-  <div>
+  <div class="user-container">
     <img src=<%= @user.photo %> alt="User profile pic"> 
     <div>
       <h1><%= @user.name %></h1><small>Number of posts:<%= @user.posts_counter %></small>
@@ -12,9 +13,10 @@
   <%# Posts container %>
   <div>
     <% @posts.each_with_index do |post, index| %>
-      <h2>Post #<%= index%> <h2>
+      <h3>Post #<%= index%> </h3>
       <p><%= post.text %></p>
-      <div>Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %></div>
+      <p>Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %></p>
     <% end %>
+    <button type="button">See all posts</button>
   </div>
 </div>
