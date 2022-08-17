@@ -1,1 +1,20 @@
-<h1>Here is an specific user</h1>
+<div>
+  <div>
+    <img src=<%= @user.photo %> alt="User profile pic"> 
+    <div>
+      <h1><%= @user.name %></h1><small>Number of posts:<%= @user.posts_counter %></small>
+    </div>
+  </div>
+  <div>
+    <h2>Bio</h2>
+    <p><%= @user.bio %></p>
+  </div>
+  <%# Posts container %>
+  <div>
+    <% @posts.each_with_index do |post, index| %>
+      <h2>Post #<%= index%> <h2>
+      <p><%= post.text %></p>
+      <div>Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %></div>
+    <% end %>
+  </div>
+</div>
