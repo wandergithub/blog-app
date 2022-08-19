@@ -4,5 +4,7 @@ class PostsController < ApplicationController
     @posts = @user.posts.slice(0,2)
   end
 
-  def show; end
+  def show
+    @post = User.find(params[:user_id]).posts[params[:id].to_i]
+  end
 end
