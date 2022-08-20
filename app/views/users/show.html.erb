@@ -1,1 +1,22 @@
-<h1>Here is an specific user</h1>
+<%= stylesheet_link_tag "users_show"%>
+<div>
+  <div class="user-container">
+    <img src=<%= @user.photo %> alt="User profile pic"> 
+    <div>
+      <h1><%= @user.name %></h1><small>Number of posts:<%= @user.posts_counter %></small>
+    </div>
+  </div>
+  <div>
+    <h2>Bio</h2>
+    <p><%= @user.bio %></p>
+  </div>
+  <%# Posts container %>
+  <div>
+    <% @posts.each_with_index do |post, index| %>
+      <h3>Post #<%= index%> </h3>
+      <p><%= post.text %></p>
+      <p>Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %></p>
+    <% end %>
+    <button type="button">See all posts</button>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+.user-container {
+  display: flex;
+  gap: 50px;
+}
+
+.user-container div {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.user-container img {
+  width: 80px;
+  height: 80px;
+  border: 1px solid black;
+}

@@ -1,1 +1,13 @@
-<h1>Here is an specific post for a given user</h1>
+<% stylesheet_link_tag "posts_show" %>
+<div>
+  <p class="post_header">
+    <span><%= @post.title %> by <%= @post.author.name %></span>
+    <span>Comments: <%= @post.comments_counter %>, Likes: <%= @post.likes_counter%></span>
+  </p>
+  <p><%= @post.text %></p>
+</div>
+<ul>
+  <% @post.comments.each do |comment| %>
+    <li><%= comment.author.name %>:<%= comment.text %></li>
+  <%end%>
+</ul>
